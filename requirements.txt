@@ -1,0 +1,53 @@
+
+# =========================
+# Environment & Configuration
+# =========================
+python-dotenv
+
+# =========================
+# LangChain Core, Agents & Runnables
+# =========================
+langchain
+langchain-core
+langchain-community
+langchain-classic
+langgraph
+
+# =========================
+# Google Gemini API
+# =========================
+langchain-google-genai
+google-genai
+
+# =========================
+# Web Search
+# =========================
+tavily-python
+
+# =========================
+# Web Scraping
+# =========================
+beautifulsoup4
+requests
+lxml
+
+# =========================
+# Data Validation
+# =========================
+pydantic
+
+# =========================
+# Optional Backend
+# =========================
+fastapi
+uvicorn[standard]
+
+# =========================
+# Optional Frontend Integration
+# =========================
+streamlit
+
+# =========================
+# Logging
+# =========================
+rich

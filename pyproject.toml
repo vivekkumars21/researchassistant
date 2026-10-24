@@ -7,7 +7,25 @@ authors = [
     { name = "Vivekkumars21", email = "vivekvishwakarma21@outlook.com" }
 ]
 requires-python = ">=3.13"
-dependencies = []
+dependencies = [
+    "beautifulsoup4",
+    "fastapi",
+    "google-genai",
+    "langchain",
+    "langchain-classic",
+    "langchain-community",
+    "langchain-core",
+    "langchain-google-genai",
+    "langgraph",
+    "lxml",
+    "pydantic",
+    "python-dotenv",
+    "requests",
+    "rich",
+    "streamlit",
+    "tavily-python",
+    "uvicorn[standard]",
+]
 
 [project.scripts]
 multiagent = "multiagent:main"
