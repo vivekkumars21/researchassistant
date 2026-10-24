@@ -47,6 +47,3 @@ def scrap_url(url: str) -> str:
         ]  # Return first 1000 characters of text content
     except Exception as e:
         return f"Could not scrape the url : {str(e)}"
-
-
-print(scrap_url.invoke("https://www.bbc.com/news/articles/cgjql614glvo"))
