@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#ffdc23">
+  <title>ResearchLab — Multi-Agent Research</title>
+  <link rel="stylesheet" href="/static/style.css?v=6">
+</head>
+<body>
+  <div class="decor decor-pink"></div>
+  <div class="decor decor-purple"></div>
+  <div class="decor decor-mark">〃</div>
+
+  <div class="app-shell">
+    <aside class="sidebar">
+      <a class="brand" href="#" aria-label="ResearchLab home">
+        <span class="brand-mark">R</span><span>ResearchLab</span>
+      </a>
+
+      <nav class="main-nav" aria-label="Main navigation">
+        <button class="nav-link active" data-view="home"><span class="nav-icon">⌂</span>Home <span class="nav-arrow">›</span></button>
+        <button class="nav-link" data-view="new"><span class="nav-icon">▤</span>New Research</button>
+        <button class="nav-link" data-view="history"><span class="nav-icon">◷</span>Research History</button>
+        <button class="nav-link" data-view="saved"><span class="nav-icon">♧</span>Saved Reports</button>
+        <button class="nav-link" data-view="settings"><span class="nav-icon">⚙</span>Settings</button>
+      </nav>
+
+      <div class="side-divider"></div>
+      <div class="collection-heading"><span>COLLECTIONS</span><button id="add-collection" aria-label="Add collection">+</button></div>
+      <div id="collections" class="collections">
+        <button class="collection" data-collection="AI & ML"><span class="folder folder-green">●</span><span>AI &amp; ML</span><small>12</small></button>
+        <button class="collection" data-collection="FinTech"><span class="folder folder-purple">●</span><span>FinTech</span><small>8</small></button>
+        <button class="collection" data-collection="Research Papers"><span class="folder folder-pink">●</span><span>Research Papers</span><small>16</small></button>
+        <button class="collection" data-collection="Product Ideas"><span class="folder folder-yellow">●</span><span>Product Ideas</span><small>6</small></button>
+        <button class="collection" data-collection="Personal"><span class="folder folder-blue">●</span><span>Personal</span><small>4</small></button>
+      </div>
+
+      <div class="sidebar-bottom">
+        <span class="online-dot"></span>
+        <span>Research workspace</span>
+        <span class="version">LOCAL</span>
+      </div>
+    </aside>
+
+    <main class="main-content">
+      <header class="topbar">
+        <div class="breadcrumbs"><span>Workspace</span><span class="crumb-slash">/</span><strong id="breadcrumb-current">Home</strong></div>
+        <div class="topbar-actions">
+          <span class="stack-label"><span class="tiny-dot"></span> GEMINI · LANGCHAIN</span>
+          <button class="settings-button" id="settings-button" aria-label="Open settings">⚙</button>
+        </div>
+      </header>
+
+      <section id="home-view" class="view">
+        <section class="hero">
+          <div class="hero-copy">
+            <div class="eyebrow"><span class="spark">✳</span> INTELLIGENCE, MULTIPLIED</div>
+            <h1>Research deeper.<br>Know more<span class="period">.</span></h1>
+            <p>Your AI research team searches, reads, writes and reviews — all in one place.</p>
+          </div>
+        </section>
+
+        <form id="research-form" class="search-form">
+          <span class="search-icon" aria-hidden="true">⌕</span>
+          <textarea id="topic" rows="1" minlength="3" maxlength="500" required placeholder="What do you want to research today?"></textarea>
+          <button id="submit-btn" class="search-submit" type="submit" aria-label="Start research">→</button>
+        </form>
+        <div class="search-hint"><span>↳</span> Try a topic, question, technology, or industry</div>
+
+        <section class="workspace-section">
+          <div class="section-heading"><h2>Your Research Workspace</h2><span class="section-caption">4 SPECIALISTS</span></div>
+          <div class="agent-grid">
+            <article class="agent-card card-green">
+              <span class="agent-icon">⌕</span>
+              <div class="agent-copy"><h3>Search Agent</h3><p>Finds relevant sources</p></div>
+              <span class="card-arrow">→</span>
+            </article>
+            <article class="agent-card card-pink">
+              <span class="agent-icon">▤</span>
+              <div class="agent-copy"><h3>Reader Agent</h3><p>Extracts deeper context</p></div>
+              <span class="card-arrow">→</span>
+            </article>
+            <article class="agent-card card-yellow">
+              <span class="agent-icon">✎</span>
+              <div class="agent-copy"><h3>Writer Chain</h3><p>Builds your report</p></div>
+              <span class="card-arrow">→</span>
+            </article>
+            <article class="agent-card card-purple">
+              <span class="agent-icon">✓</span>
+              <div class="agent-copy"><h3>Critic Review</h3><p>Checks clarity and evidence</p></div>
+              <span class="card-arrow">→</span>
+            </article>
+          </div>
+        </section>
+
+        <section id="progress" class="progress-panel hidden">
+          <div class="progress-title-row">
+            <div><div class="eyebrow">LIVE WORKFLOW</div><h2 id="progress-title">Your agents are at work</h2></div>
+            <span id="elapsed" class="elapsed">Starting…</span>
+          </div>
+          <div class="progress-track"><span id="progress-bar"></span></div>
+          <div class="workflow-steps">
+            <div class="workflow-step" data-step="0"><span class="workflow-num">01</span><div><strong>Search Agent</strong><small>Finding relevant sources</small></div><span class="workflow-status">Waiting</span></div>
+            <div class="workflow-step" data-step="1"><span class="workflow-num">02</span><div><strong>Reader Agent</strong><small>Extracting deeper context</small></div><span class="workflow-status">Waiting</span></div>
+            <div class="workflow-step" data-step="2"><span class="workflow-num">03</span><div><strong>Writer Chain</strong><small>Drafting your report</small></div><span class="workflow-status">Waiting</span></div>
+            <div class="workflow-step" data-step="3"><span class="workflow-num">04</span><div><strong>Critic Review</strong><small>Reviewing the report</small></div><span class="workflow-status">Waiting</span></div>
+          </div>
+          <p class="muted-note">The full workflow can take a little time. You can keep this page open while it runs.</p>
+        </section>
+
+        <section id="results" class="results-section hidden">
+          <div class="section-heading results-heading">
+            <div><div class="eyebrow">YOUR RESEARCH OUTPUT</div><h2 id="result-topic">Research report</h2></div>
+            <div class="result-actions"><button id="back-workspace" class="outline-button">← Workspace</button><button id="save-report" class="outline-button">♡ Save</button><button id="copy-report" class="outline-button">Copy report</button></div>
+          </div>
+          <div class="result-tabs" role="tablist">
+            <button class="result-tab active" data-panel="report-panel">Final report</button>
+            <button class="result-tab" data-panel="sources-panel">Search results</button>
+            <button class="result-tab" data-panel="extracted-panel">Extracted content</button>
+            <button class="result-tab" data-panel="critic-panel">Critic review</button>
+          </div>
+          <article id="report-panel" class="result-panel"></article>
+          <article id="sources-panel" class="result-panel hidden"></article>
+          <article id="extracted-panel" class="result-panel hidden"></article>
+          <article id="critic-panel" class="result-panel hidden"></article>
+        </section>
+
+        <div class="home-history-link"><button id="view-history" class="text-button">View your research history →</button></div>
+        <div id="error" class="error-box hidden" role="alert"></div>
+      </section>
+
+      <section id="history-view" class="view hidden">
+        <div class="page-intro"><div class="eyebrow">YOUR WORK, IN ONE PLACE</div><h1>Research history<span class="period">.</span></h1><p>Revisit reports you've generated in this browser session.</p></div>
+        <div id="history-list" class="history-list"><div class="empty-state">No research history yet. Start by searching for a topic.</div></div>
+      </section>
+
+      <section id="saved-view" class="view hidden">
+        <div class="page-intro"><div class="eyebrow">BOOKMARKED KNOWLEDGE</div><h1>Saved reports<span class="period">.</span></h1><p>Reports you choose to keep for quick access.</p></div>
+        <div id="saved-list" class="history-list"><div class="empty-state">You haven't saved a report yet.</div></div>
+      </section>
+
+      <section id="collection-view" class="view hidden">
+        <div class="page-intro"><div class="eyebrow">YOUR COLLECTION</div><h1 id="collection-title">Collection<span class="period">.</span></h1><p>Organize research around topics that matter to you.</p></div>
+        <div class="collection-note">Collections are visual placeholders in this frontend. Reports are not assigned to collections yet.</div>
+      </section>
+
+      <section id="settings-view" class="view hidden">
+        <div class="page-intro"><div class="eyebrow">PREFERENCES</div><h1>Settings<span class="period">.</span></h1><p>Configure the local research workspace.</p></div>
+        <div class="settings-card"><h3>Backend connection</h3><p>Research requests are sent to your FastAPI server at <code>/api/research</code>.</p><div class="connection-state"><span class="online-dot"></span> Same-origin API · FastAPI</div><p class="muted-note">Keep Gemini and Tavily API keys in your backend environment file. Never expose them in frontend JavaScript.</p></div>
+      </section>
+
+      <footer class="footer"><span>BUILT FOR CURIOUS MINDS</span><span>FASTAPI · LANGCHAIN · GEMINI · TAVILY</span></footer>
+    </main>
+  </div>
+
+  <dialog id="collection-dialog" class="collection-dialog">
+    <form method="dialog" id="collection-form">
+      <div class="dialog-top"><h2>New collection</h2><button class="dialog-close" value="cancel" aria-label="Close">×</button></div>
+      <label for="collection-name">Collection name</label>
+      <input id="collection-name" maxlength="40" placeholder="e.g. Speech AI research" required>
+      <button class="dialog-submit" value="default">Create collection →</button>
+    </form>
+  </dialog>
+
+  <script src="/static/script.js?v=5"></script>
+</body>
+</html>
