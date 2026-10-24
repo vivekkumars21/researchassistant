@@ -1,4 +1,5 @@
 from agents import reader_agent, search_agent, writer_chain, critic_chain
+from rich import print
 
 
 def run_research_pipeline(topic: str) -> dict:
