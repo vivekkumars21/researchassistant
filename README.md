@@ -212,7 +212,3 @@ curl -X POST http://127.0.0.1:8000/api/research \
 ## Contributing
 
 Contributions and suggestions are welcome. For a change, create a branch, make a focused update, and open a pull request with a clear summary and steps to reproduce or review it. Do not include `.env`, API keys, virtual environments, or generated cache files.
-
-## License
-
-No license file is currently included. Add a `LICENSE` file before distributing or reusing this project so its usage terms are clear.
